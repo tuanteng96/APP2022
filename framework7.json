@@ -1,0 +1,20 @@
+{
+  "cwd": "/Users/tradade/Framework 7/APP2022",
+  "type": [
+    "pwa",
+    "web"
+  ],
+  "name": "EZS SPA",
+  "framework": "react",
+  "template": "single-view",
+  "bundler": "vite",
+  "cssPreProcessor": "scss",
+  "theming": {
+    "customColor": true,
+    "color": "#007aff",
+    "darkTheme": false,
+    "iconFonts": false,
+    "fillBars": false
+  },
+  "customBuild": false
+}
