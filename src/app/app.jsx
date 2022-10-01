@@ -40,6 +40,8 @@ const MyApp = () => {
     store: store,
     // App routes
     routes: routes,
+    //darkMode: true,
+    //autoDarkMode: true
   }
 
   return (

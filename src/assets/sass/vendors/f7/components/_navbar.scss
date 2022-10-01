@@ -1,0 +1,64 @@
+@mixin createBgNavbars($map) {
+    @each $name,
+    $value in $map {
+        .bg-color-#{$name} {
+            &.navbar-transparent-visible {
+                border: 0 !important;
+                box-shadow: 0px 10px 30px 0px rgb(82 63 105 / 5%);
+            }
+            .navbar-bg {
+                background-color: get($value, "backgroud");
+                box-shadow: 0px 10px 30px 0px rgb(82 63 105 / 8%);
+                &::after {
+                    background: transparent;
+                }
+            }
+            .navbar-inner {
+                .title {
+                    font-size: get($value, "font-size-title");
+                    color: get($value, "color");
+                }
+                .left .back {
+                    >span {
+                        display: none !important;
+                    }
+                    i {
+                        &.icon-back {
+                            width: 30px;
+                            &:after {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.navbar {
+                &.no-shadow {
+                    .navbar-bg {
+                        box-shadow: none;
+                    }
+                }
+            }
+            .subnavbar {
+                border-top: 1px solid $border-color;
+                background-color: get($value, "backgroud");
+                //box-shadow: 0 4px 2px -2px rgb(82 63 105 / 8%);
+                box-shadow: 0px 10px 30px -10px rgb(82 63 105 / 8%);
+                &::after {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+@include createBgNavbars($config-navbars);
+.no-navbar {
+    .page-content {
+        padding-top: 0;
+    }
+}
+
+.navbar-hidden {
+    transform: translate3d(0, calc(-1 * (var(--f7-navbar-height) + var(--f7-safe-area-top))), 0);
+}

@@ -1,0 +1,23 @@
+//
+// Main Styles
+//
+////////////////////////////////////////////////////////////////
+///////////// DO NOT MODIFY BELOW INCLUDE ORDER ////////////////
+////////////////////////////////////////////////////////////////
+/// 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap');
+// 1: Initialize
+@import "./init";
+// 2: Components
+@import "./components/utilities",
+"./components/button",
+"./components/line",
+"./components/symbol",
+"./components/upload-images",
+"./components/splash-screen";
+// 3: Layout
+@import "./layout/init";
+// 4: Plugins
+@import "./vendors/f7/init",
+"./vendors/plugins/react-toastify";
+// 5: Page

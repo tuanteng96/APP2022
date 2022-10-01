@@ -1,0 +1,10 @@
+.ios-translucent-bars .toolbar {
+    background-color: var(--f7-toolbar-bg-color);
+    backdrop-filter: none;
+}
+
+.toolbar {
+    &-bottom {
+        &:before {}
+    }
+}

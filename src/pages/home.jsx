@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Page,
   Navbar,
@@ -16,11 +16,15 @@ import {
   Col,
   Button,
   useStore,
-} from 'framework7-react'
-import Navigator from '../components/Navigator'
+  f7,
+} from "framework7-react";
+import Navigator from "../components/Navigator";
+import store from "../js/store";
 
 const HomePage = ({ f7router }) => {
-  const { Token } = useStore('Auth')
+  //const { Token } = useStore("Auth");
+  const { ThemeMode } = useStore("APP");
+  console.log(ThemeMode);
   return (
     <Page name="home">
       {/* Top Navbar */}
@@ -46,7 +50,7 @@ const HomePage = ({ f7router }) => {
       </Navbar>
       {/* Toolbar */}
       <Toolbar bottom>
-        <Navigator f7router={f7router}/>
+        <Navigator f7router={f7router} />
       </Toolbar>
       {/* Page content */}
       <Block strong>
@@ -78,13 +82,25 @@ const HomePage = ({ f7router }) => {
       <Block strong>
         <Row>
           <Col width="50">
-            <Button fill raised panelOpen="left">
-              Left Panel
+            <Button
+              fill
+              raised
+              onClick={() =>
+                store.dispatch("setThemeMode", { ThemeMode: "light" })
+              }
+            >
+              Light
             </Button>
           </Col>
           <Col width="50">
-            <Button fill raised panelOpen="right">
-              Right Panel
+            <Button
+              fill
+              raised
+              onClick={() =>
+                store.dispatch("setThemeMode", { ThemeMode: "dark" })
+              }
+            >
+              Dark
             </Button>
           </Col>
         </Row>
@@ -105,6 +121,6 @@ const HomePage = ({ f7router }) => {
         />
       </List>
     </Page>
-  )
-}
-export default HomePage
+  );
+};
+export default HomePage;
