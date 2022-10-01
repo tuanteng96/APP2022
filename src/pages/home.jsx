@@ -24,7 +24,6 @@ import store from "../js/store";
 const HomePage = ({ f7router }) => {
   //const { Token } = useStore("Auth");
   const { ThemeMode } = useStore("APP");
-  console.log(ThemeMode);
   return (
     <Page name="home">
       {/* Top Navbar */}

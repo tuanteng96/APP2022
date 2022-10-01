@@ -4,7 +4,80 @@
 }
 
 .toolbar {
+    &-inner {
+        overflow: visible;
+    }
     &-bottom {
-        &:before {}
+        box-shadow: var(--f7-toolbar-shadow);
+        &:before {
+            display: none;
+        }
+    }
+    &-indicator {
+        position: absolute;
+        background-color: var(--f7-toolbar-indicator-bg-color);
+        width: 66px;
+        height: 42px;
+        border-radius: 0 0 50px 50px;
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: transform .3s ease-out;
+        &__left,
+        &__right {
+            background-color: var(--f7-toolbar-indicator-bg-color);
+            height: 25px;
+            width: 25px;
+            position: absolute;
+            &::after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background-color: var(--f7-toolbar-bg-color);
+                display: block;
+            }
+        }
+        &__left {
+            left: -23px;
+            &::after {
+                border-radius: 0 25px 0 0;
+            }
+        }
+        &__right {
+            right: -23px;
+            &::after {
+                border-radius: 25px 0 0 0;
+            }
+        }
+    }
+    &-book {
+        position: relative;
+        z-index: 2;
+        width: 30%;
+        &__icon {
+            position: absolute;
+            display: flex;
+            height: 48px;
+            width: 48px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            transition: transform .2s ease-out, box-shadow .2s ease-out;
+            transform: translateY(-12px);
+            background-color: var(--ezs-color);
+            box-shadow: var(--f7-toolbar-shadow);
+            img {
+                width: 30px;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+            }
+        }
+    }
+    a.link {
+        color: var(--f7-toolbar-text-color);
+        &.active {
+            color: var(--f7-tabbar-link-active-color);
+        }
     }
 }
