@@ -1,0 +1,51 @@
+.page-home {
+    &__header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        padding-top: var(--f7-safe-area-top);
+        background: rgb(255 255 255 / 0%);
+        transition: all 300ms ease-in-out;
+        @include ThemeDark {
+            background: rgb(28 28 29 / 0%);
+        }
+        &.scroll-active {
+            background: #ffffff;
+        }
+        .icons {
+            i,
+            .stocks-name {
+                color: #fff;
+            }
+        }
+        .form-search {
+            position: relative;
+            flex: 1;
+            padding-right: 20px;
+            input {
+                background: #ffffff;
+                width: 100%;
+                height: 42px;
+                padding-left: 42px;
+                border-radius: .125rem;
+                font-size: 15px;
+            }
+            i {
+                position: absolute;
+                width: 40px;
+                height: 42px;
+                line-height: 42px;
+                text-align: center;
+                top: 0;
+                left: 0;
+                z-index: 2;
+            }
+        }
+    }
+    &__slider {
+        position: relative;
+        z-index: 1;
+    }
+}

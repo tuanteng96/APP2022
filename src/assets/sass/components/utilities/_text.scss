@@ -48,11 +48,9 @@ $color in $theme-text-colors {
 }
 
 //
-@each $name,
-$size in $config-font-size {
-    // Base color
-    .font-#{$name} {
-        font-size: $size !important;
+@for $size from 8 through 50 {
+    .fz-#{$size}px {
+        font-size: #{$size}px !important;
     }
 }
 

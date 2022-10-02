@@ -1,4 +1,4 @@
-import HomePage from '../pages/home.jsx';
+import HomePage from '../pages/Home/home.jsx';
 import NotFoundPage from '../pages/404.jsx';
 import store from './store.js';
 import LoginPage from '../pages/Auth/Login.jsx';

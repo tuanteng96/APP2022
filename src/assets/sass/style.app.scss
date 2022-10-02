@@ -10,10 +10,6 @@
 @import "./init";
 // 2: Components
 @import "./components/utilities",
-"./components/button",
-"./components/line",
-"./components/symbol",
-"./components/upload-images",
 "./components/splash-screen";
 // 3: Layout
 @import "./layout/init";
@@ -21,3 +17,4 @@
 @import "./vendors/f7/init",
 "./vendors/plugins/react-toastify";
 // 5: Page
+@import "./pages/home";

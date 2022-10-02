@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react'
 import {
   Page,
   Navbar,
@@ -17,17 +17,42 @@ import {
   Button,
   useStore,
   f7,
-} from "framework7-react";
-import Navigator from "../components/Navigator";
-import store from "../js/store";
+  Input,
+} from 'framework7-react'
+import Navigator from '../../components/Navigator'
+import store from '../../js/store'
+import { AppHelpers } from '../../helpers'
+import Image1 from '../../assets/images/anh-1.jpeg'
+import Dom7 from 'dom7'
+import bgHeaderTop from '../../assets/images/bg-header-home.png'
 
 const HomePage = ({ f7router }) => {
   //const { Token } = useStore("Auth");
-  const { ThemeMode } = useStore("APP");
+  const { ThemeMode } = useStore('APP')
+
+  useEffect(() => {
+    const $ = Dom7
+    $('.page-content').scroll(function () {
+      if ($(this).scrollTop() > 0) {
+        AppHelpers.PromHelpers.STATUS_BAR_COLOR()
+        $('.elm-header').addClass('scroll-active')
+      } else {
+        AppHelpers.PromHelpers.STATUS_BAR_COLOR('light')
+        $('.elm-header').removeClass('scroll-active')
+      }
+    }, [])
+  })
+
   return (
-    <Page name="home">
+    <Page
+      className="page-home"
+      name="home"
+      onPageBeforeIn={() => AppHelpers.PromHelpers.STATUS_BAR_COLOR('light')}
+      onPageBeforeOut={() => AppHelpers.PromHelpers.STATUS_BAR_COLOR('light')}
+      noNavbar
+    >
       {/* Top Navbar */}
-      <Navbar large sliding={false}>
+      {/* <Navbar large sliding={false}>
         <NavLeft>
           <Link
             iconIos="f7:menu"
@@ -46,12 +71,41 @@ const HomePage = ({ f7router }) => {
           />
         </NavRight>
         <NavTitleLarge>EZS SPA</NavTitleLarge>
-      </Navbar>
+      </Navbar> */}
       {/* Toolbar */}
       <Toolbar bottom>
         <Navigator f7router={f7router} />
       </Toolbar>
       {/* Page content */}
+      <div className="page-home__header elm-header">
+        <div className="px-12px py-8px">
+          <div className="d--f jc--sb ai--c top">
+            <div className="form-search">
+              <i class="fa-regular fa-magnifying-glass"></i>
+              <Input
+                type="text"
+                placeholder="Bạn tìm gì hôm nay ?"
+                clearButton
+              />
+            </div>
+            <div className="d--f icons">
+              <div className="w-35px h-30px d--f ai--c jc--c fz-18px">
+                <i className="fa-regular fa-bell"></i>
+              </div>
+              <div className="w-35px h-30px d--f ai--c jc--c fz-18px">
+                <i className="fa-regular fa-cart-shopping"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="page-home__slider">
+        <img
+          className="w-100 d-block"
+          src={Image1}
+          alt=""
+        />
+      </div>
       <Block strong>
         <p>Here is your blank Framework7 app. Let's see what we have here.</p>
       </Block>
@@ -85,7 +139,7 @@ const HomePage = ({ f7router }) => {
               fill
               raised
               onClick={() =>
-                store.dispatch("setThemeMode", { ThemeMode: "light" })
+                store.dispatch('setThemeMode', { ThemeMode: 'light' })
               }
             >
               Light
@@ -96,7 +150,7 @@ const HomePage = ({ f7router }) => {
               fill
               raised
               onClick={() =>
-                store.dispatch("setThemeMode", { ThemeMode: "dark" })
+                store.dispatch('setThemeMode', { ThemeMode: 'dark' })
               }
             >
               Dark
@@ -120,6 +174,6 @@ const HomePage = ({ f7router }) => {
         />
       </List>
     </Page>
-  );
-};
-export default HomePage;
+  )
+}
+export default HomePage

@@ -1,0 +1,5 @@
+@mixin ThemeDark {
+	html.dark & {
+		@content;
+	}
+}

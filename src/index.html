@@ -27,6 +27,37 @@
 
     <link rel="stylesheet" href="css/splash-screen.css">
 
+
+    <script>
+        var IOS = true;
+        /**
+         * gửi yêu cầu tới app IOS || app Android
+         */
+        function app_request(cmd, value) {
+            if (window['ANDROID'])
+                ANDROID.Do(cmd, value);
+            else
+                window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.IOS.postMessage({
+                    "cmd": cmd,
+                    "value": value
+                })
+        }
+    
+        /**
+         * App trả lời
+         */
+        function app_response(cmd, value) {
+    
+        }
+    
+        //Webview visiable
+        app_request("call", JSON.stringify({
+            sub_cmd: 'WV_VISIBLE',
+            sub_cmd_id: -999,
+            params: '1'
+        }));
+    </script>
+
     <script>
         function readTextFile(file, callback) {
             var rawFile = new XMLHttpRequest();
@@ -39,7 +70,7 @@
             }
             rawFile.send(null);
         }
-        readTextFile(`${window.location.origin === 'http://localhost:8080' ? "https://cser.vn" : window.location.origin}/brand/global/Global.json?7`, function(result) {
+        readTextFile(`https://cser.vn/brand/global/Global.json?7`, function(result) {
             var data = JSON.parse(result);
             if (data.APP && data.APP.Css) {
                 for (const key in data.APP.Css) {
@@ -63,6 +94,8 @@
     </svg>
     </div>
 
+    <script type="text/javascript" src="https://cser.vn/app/21/app21.js"></script>
+    <script type="text/javascript" src="https://cser.vn/app/21/Index21.js"></script>
     <script type="module" src="./js/app.js"></script>
 </body>
 

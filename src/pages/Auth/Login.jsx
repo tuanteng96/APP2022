@@ -5,7 +5,7 @@ import Navigator from '../../components/Navigator'
 function Login({ f7router }) {
   return (
     <Page name="login">
-      <Navbar large sliding={false}>
+      <Navbar sliding={false}>
         <NavLeft>
           <Link onClick={() => f7router.back()}>Back</Link>
         </NavLeft>
@@ -18,7 +18,6 @@ function Login({ f7router }) {
             panelOpen="right"
           />
         </NavRight>
-        <NavTitleLarge>EZS SPA</NavTitleLarge>
       </Navbar>
       <Toolbar bottom>
         <Navigator f7router={f7router} />

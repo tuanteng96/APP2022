@@ -79,5 +79,8 @@
         &.active {
             color: var(--f7-tabbar-link-active-color);
         }
+        i {
+            font-size: 18px;
+        }
     }
 }
