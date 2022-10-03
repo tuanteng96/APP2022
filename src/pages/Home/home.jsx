@@ -78,26 +78,7 @@ const HomePage = ({ f7router }) => {
       </Toolbar>
       {/* Page content */}
       <div className="page-home__header elm-header">
-        <div className="px-12px py-8px">
-          <div className="d--f jc--sb ai--c top">
-            <div className="form-search">
-              <i class="fa-regular fa-magnifying-glass"></i>
-              <Input
-                type="text"
-                placeholder="Bạn tìm gì hôm nay ?"
-                clearButton
-              />
-            </div>
-            <div className="d--f icons">
-              <div className="w-35px h-30px d--f ai--c jc--c fz-18px">
-                <i className="fa-regular fa-bell"></i>
-              </div>
-              <div className="w-35px h-30px d--f ai--c jc--c fz-18px">
-                <i className="fa-regular fa-cart-shopping"></i>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
       <div className="page-home__slider">
         <img

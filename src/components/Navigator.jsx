@@ -32,7 +32,9 @@ function Navigator({ f7router }) {
       <Link className="f--1" href="/login">
         <i className="fa-regular fa-map-location-dot"></i>
       </Link>
-      <Link className="f--1" href="/login">
+      <Link 
+        className={clsx("f--1", routerUrl == "/login" && "active")}
+        href="/login">
         <i className="fa-regular fa-user"></i>
       </Link>
       <div className="toolbar-indicator">
